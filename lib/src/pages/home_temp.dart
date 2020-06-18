@@ -20,8 +20,8 @@ class HomePageTemp extends StatelessWidget {
     final items = new List<Widget>();
 
     for(String opcion in opciones) {
-      items.add(Text('$opcion'));
-      items.add(Divider());
+      items..add(Text('$opcion'))
+           ..add(Divider());
     }
 
     return items;
