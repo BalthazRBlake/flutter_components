@@ -15,7 +15,7 @@ class HomePageTemp extends StatelessWidget {
       ),
     );
   }
-
+/*
   List<Widget> _getItems() {
     final items = new List<Widget>();
 
@@ -26,7 +26,7 @@ class HomePageTemp extends StatelessWidget {
 
     return items;
   }
-
+*/
   List<Widget> _getWidgets() {
 
     return opciones.map(( opcion ) {
