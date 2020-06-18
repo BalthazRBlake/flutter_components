@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
- 
+
+import 'package:componentes/src/pages/home_temp.dart'; 
 void main() => runApp(MyApp());
  
 class MyApp extends StatelessWidget {
@@ -12,11 +13,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Componentes'),
         ),
-        body: Center(
-          child: Container(
-            child: Text('Hello there'),
-          ),
-        ),
+        body: HomePageTemp(),
       ),
     );
   }
