@@ -14,20 +14,36 @@ class HomePage extends StatelessWidget {
 
   Widget _lista() {
 
-    print(menuProvider.opciones);
+    return FutureBuilder(
+      future: menuProvider.cargarData(),
+      initialData: [],
+      builder: ( context, AsyncSnapshot<List<dynamic>> snapshot ) {
 
-    return ListView(
-      children: _listaItems(),
+        return ListView(
+          children: _listaItems( snapshot.data ),
+        );
+      },
     );
+
+    
   }
 
-  List<Widget> _listaItems() {
-    return [
-      ListTile(title: Text('Holo código')),
-      Divider(),
-      ListTile(title: Text('Holo código')),
-      Divider(),
-      ListTile(title: Text('Holo código')),
-    ];
+  List<Widget> _listaItems( List<dynamic> data ) {
+    
+    final List<Widget> opciones = [];
+
+    data.forEach( ( opcion ) { 
+
+      final widgetTemp = ListTile(
+        title: Text(opcion['texto']),
+        leading: Icon(Icons.code, color: Colors.blue),
+        trailing: Icon(Icons.keyboard_arrow_right, color: Colors.blue),
+        onTap: (){},
+      );
+
+      opciones.add(widgetTemp);
+    });
+    
+    return opciones;
   }
 }
