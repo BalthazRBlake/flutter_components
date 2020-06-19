@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:componentes/src/pages/home_page.dart'; 
-import 'package:componentes/src/pages/alert_page.dart';
-import 'package:componentes/src/pages/avatar_page.dart';
+import 'package:componentes/src/routes/routes.dart';
+import 'package:componentes/src/pages/home_temp.dart';
 void main() => runApp(MyApp());
  
 class MyApp extends StatelessWidget {
@@ -12,12 +11,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Componentes App',
       initialRoute: 'home',
-      routes: <String, WidgetBuilder>{
-        'home' : ( BuildContext context ) => HomePage(),
-        'alert': ( BuildContext context ) => AlertPage(),
-        'avatar': ( BuildContext context ) => AvatarPage(),
-      },
-      //home: HomePage(),
+      routes: getApplicationRoutes(),
+      onGenerateRoute: ( RouteSettings settings ) {
+        
+        print('ruta generada: ${ settings.name }');
+
+        return MaterialPageRoute(
+          builder: ( BuildContext context ) => HomePageTemp(),
+        );
+      }
     );
   }
 }
